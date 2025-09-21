@@ -1,0 +1,19 @@
+# Email Configuration
+# For Gmail: Enable 2-factor authentication and generate an app password
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+
+# Server Configuration
+NODE_ENV=development
+PORT=3000
+
+# Optional: Analytics (for future use)
+# GOOGLE_ANALYTICS_ID=your-ga-id
+# MIXPANEL_TOKEN=your-mixpanel-token
+
+# Instructions:
+# 1. Copy this file to .env
+# 2. Replace the placeholder values with your actual credentials
+# 3. For Gmail: Go to Google Account > Security > 2-Step Verification > App passwords
+# 4. Generate an app password and use it as EMAIL_PASS
+# 5. Never commit the .env file to version control
