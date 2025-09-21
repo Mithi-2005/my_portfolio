@@ -20,7 +20,7 @@
             <a href="#education">Education</a>
             <a href="#achievements">Achievements</a>
             <a href="#contact">Contact</a>
-            <a href="resume_latest.pdf" download class="nav-resume"><i class="fas fa-download"></i> Resume</a>
+            <a href="https://drive.google.com/file/d/1rh0l7PxYyGKQ0NwB4EAmcbMma3FktGkQ/view?usp=sharing" target="_blank" class="nav-resume"><i class="fas fa-download"></i> Resume</a>
         </nav>
         <div class="theme-toggle">
             <i class="fas fa-moon" id="theme-icon"></i>
@@ -35,7 +35,9 @@
             <p>Passionate about creating innovative solutions through full-stack development and machine learning. Currently pursuing BTech-CSE at SRM University-AP with a CGPA of 9.34.</p>
             <div class="btn-group">
                 <a href="#contact">Hire Me</a>
-                <a class="btn-tr" href="resume_latest.pdf" download>Download Resume</a>
+                <a class="btn-tr" href="https://drive.google.com/file/d/1rh0l7PxYyGKQ0NwB4EAmcbMma3FktGkQ/view?usp=sharing" target="_blank" title="Download Resume">
+                    <i class="fas fa-download"></i>
+                </a>
                 <a class="btn-tr" href="#projects">See Projects</a>
             </div>
         </div>
@@ -480,17 +482,21 @@
         });
 
         // Resume download tracking
-        document.querySelector('a[href="resume_latest.pdf"]')?.addEventListener('click', () => {
-            fetch('/api/analytics', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    event: 'resume_download',
-                    data: { timestamp: new Date().toISOString() }
-                })
-            }).catch(() => {});
+        document.querySelectorAll('a[href*="drive.google.com"]').forEach(link => {
+            if (link.textContent.includes('Resume')) {
+                link.addEventListener('click', () => {
+                    fetch('/api/analytics', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            event: 'resume_download',
+                            data: { timestamp: new Date().toISOString() }
+                        })
+                    }).catch(() => {});
+                });
+            }
         });
     </script>
 

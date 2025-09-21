@@ -120,18 +120,6 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Resume download endpoint
-app.get('/api/resume', (req, res) => {
-    const resumePath = path.join(__dirname, 'resume_latest.pdf');
-    res.download(resumePath, 'Konagalla_Venkata_Mithilesh_Resume.pdf', (err) => {
-        if (err) {
-            res.status(404).json({ 
-                success: false, 
-                message: 'Resume file not found.' 
-            });
-        }
-    });
-});
 
 // Analytics endpoint (for future use)
 app.post('/api/analytics', (req, res) => {
